@@ -1,7 +1,25 @@
+import EmptyModalText from 'components/emtpyModalText/EmptyModalText';
+import Header from 'components/header/Header';
 import LibraryForm from 'components/LibraryForm/LibraryForm'
+import Modal from 'components/Modal/Modal';
+import { useState } from 'react';
 
 const LibraryPage = () => {
-  return <><LibraryForm/></>;
+   const [showModal, setShowModal] = useState(true);
+  const toggleModal = () => {
+    setShowModal((showModal) => !showModal);
+  };
+  return <>
+    <LibraryForm />
+    {showModal && (
+        <>
+          <Modal onClose={toggleModal}>
+            <Header />
+            <EmptyModalText />
+          </Modal>
+        </>
+      )}
+  </>;
 };
 
 // При отсутвии библиотеки рендерить модальное окно с шагами, по сути это не модальное окно
