@@ -4,6 +4,7 @@ import { ReactComponent as FlagIcon } from 'images/svg/flag.svg';
 import { ReactComponent as ArrowIcon } from 'images/svg/arrow.svg';
 import { useContext } from "react";
 import { PageFormatContext, format } from 'context/pageFormatContext';
+import { StyledContainer } from "components/common/container/Container.styled";
 
 export default function EmptyModalText() {
     const pageFormat = useContext(PageFormatContext);
@@ -11,7 +12,8 @@ export default function EmptyModalText() {
     const isMobile = pageFormat === format.mobile;
   
     return (
-      <>
+        <StyledContainer>
+            
         <StyledList>
             <StyledItem>
                 <StyledStepText>Крок 1.</StyledStepText>
@@ -36,7 +38,7 @@ export default function EmptyModalText() {
                     <StyledModalButton> Ок</StyledModalButton>
                     </StyledModalBox>
        }
-            </>
+            </StyledContainer>
     )
 
 }

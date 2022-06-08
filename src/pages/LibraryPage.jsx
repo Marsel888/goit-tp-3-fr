@@ -5,7 +5,7 @@ import Modal from 'components/Modal/Modal';
 import { useState } from 'react';
 
 const LibraryPage = () => {
-   const [showModal, setShowModal] = useState(true);
+   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => {
     setShowModal((showModal) => !showModal);
   };
