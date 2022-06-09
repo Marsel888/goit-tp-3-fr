@@ -20,7 +20,7 @@ export const StyledDescriptionText = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
-  color: #${({ theme }) => theme.colors.lightText};
+  color: ${({ theme }) => theme.colors.lightText};
 `;
 
 export const StyledBox = styled(StyledContainer)`

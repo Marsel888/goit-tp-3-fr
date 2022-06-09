@@ -23,9 +23,7 @@ export default function Modal({ onClose, children, style }) {
   };
 
   return createPortal(
-    <WrapperOverlay onClick={handleBackdropClick}>
-      <WrapperModal style={style}>{children}</WrapperModal>
-    </WrapperOverlay>,
+    <WrapperOverlay onClick={handleBackdropClick}>{children}</WrapperOverlay>,
     modalRoot,
   );
 }
