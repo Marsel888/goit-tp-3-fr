@@ -4,7 +4,7 @@ import { WrapperModal, WrapperOverlay } from './Modal.styled';
 
 const modalRoot = document.querySelector('#root');
 
-export default function Modal({ onClose, children }) {
+export default function Modal({ onClose, children, style }) {
   useEffect(() => {
     const handleKeydown = e => {
       if (e.code === 'Escape') {
@@ -16,10 +16,15 @@ export default function Modal({ onClose, children }) {
       window.removeEventListener('keydown', handleKeydown);
     };
   }, [onClose]);
+  const handleBackdropClick = e => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   return createPortal(
-    <WrapperOverlay>
-      <WrapperModal>{children}</WrapperModal>
+    <WrapperOverlay onClick={handleBackdropClick}>
+      <WrapperModal style={style}>{children}</WrapperModal>
     </WrapperOverlay>,
     modalRoot,
   );
